@@ -341,7 +341,7 @@ body { background: #f1f5f9; font-family: 'Segoe UI', sans-serif; }
 <div class="container py-4">
 
     <div class="d-flex justify-content-end mb-3">
-        <div class="clock-badge" id="clock"></div>
+       
     </div>
 
     <!-- HERO -->
