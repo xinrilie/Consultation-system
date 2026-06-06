@@ -96,7 +96,20 @@ body{
     align-items:center;
     justify-content:center;
 }
+.clock-box{
 
+    background:white;
+
+    border-radius:15px;
+
+    padding:10px 18px;
+
+    font-weight:600;
+
+    box-shadow:
+    0 4px 15px rgba(0,0,0,.05);
+
+}
 .brand-text{
     font-weight:700;
     color:var(--dark);
@@ -348,17 +361,7 @@ body{
     color:var(--primary);
 }
 
-/* =======================
-   CLOCK
-======================= */
 
-.clock-badge{
-    background:white;
-    padding:10px 18px;
-    border-radius:14px;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
-    font-weight:600;
-}
 
 /* =======================
    MOBILE
@@ -398,18 +401,26 @@ body{
                 Sistem Konsultasi
             </span>
         </a>
+     <div class="ms-auto d-flex align-items-center gap-3">
 
-        <div class="ms-auto d-flex align-items-center gap-3">
+            <div class="clock-box d-none d-md-block" id="clock"></div>
 
-            <span class="d-none d-md-block">
+            <div class="text-end d-none d-md-block">
+
+                <span class="d-none d-md-block">
                 Halo,
                 <strong><?= $nama_user ?></strong>
             </span>
+
+            </div>
+
 
             <a href="logout.php"
                class="btn btn-danger btn-sm btn-logout">
                 Logout
             </a>
+        </div>
+     
 
         </div>
     </div>
@@ -771,24 +782,6 @@ body{
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<script>
-function updateClock() {
-
-    const now = new Date();
-
-    document.getElementById("clock").innerHTML =
-    now.toLocaleDateString("id-ID",{
-        weekday:"long",
-        day:"numeric",
-        month:"long",
-        year:"numeric"
-    }) + " | " +
-    now.toLocaleTimeString("id-ID");
-
-}
-
-setInterval(updateClock,1000);
-updateClock();
 
 document.querySelectorAll('.btn-logout').forEach(button => {
 
@@ -819,7 +812,26 @@ document.querySelectorAll('.btn-logout').forEach(button => {
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- CLOCK -->
+<script>
+function updateClock() {
 
+    const now = new Date();
+
+    document.getElementById("clock").innerHTML =
+        now.toLocaleDateString("id-ID", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        }) + " | " +
+        now.toLocaleTimeString("id-ID");
+
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
 <?php if(isset($_SESSION['login_success'])): ?>
 
 <script>
