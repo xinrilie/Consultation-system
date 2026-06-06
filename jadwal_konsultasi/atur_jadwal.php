@@ -34,17 +34,38 @@ $foto_dosen = (!empty($dosen['foto'])) ? $dosen['foto'] : 'default.png';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atur Jadwal Konsultasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    .navbar-custom{
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);
+}
+
+    </style>
 </head>
 <body class="bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm mb-4">
+<nav class="navbar navbar-expand-lg navbar-custom">
+
     <div class="container">
-        <a class="navbar-brand fw-bold" href="dashboard.php">Sistem Konsultasi</a>
-        <div class="navbar-nav ms-auto">
-            <a class="nav-link text-white" href="pilih_dosen.php">&larr; Batal & Kembali</a>
+
+        <a class="navbar-brand fw-bold text-primary" href="dashboard.php">
+            <i class="bi bi-mortarboard-fill me-2"></i>
+            Sistem Konsultasi
+        </a>
+
+        <div class="ms-auto">
+
+            <a href="dashboard.php" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-house"></i> Dashboard
+            </a>
+
         </div>
+
     </div>
+
 </nav>
+
+<div class="container py-4">
 
 <div class="container">
     <div class="progress mb-4 shadow-sm" style="height: 25px; border-radius: 20px;">
