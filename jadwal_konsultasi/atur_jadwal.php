@@ -34,6 +34,7 @@ $foto_dosen = (!empty($dosen['foto'])) ? $dosen['foto'] : 'default.png';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Atur Jadwal Konsultasi</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <style>
     .navbar-custom{
     background:white;
