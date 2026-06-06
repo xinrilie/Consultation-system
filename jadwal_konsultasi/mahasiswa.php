@@ -25,8 +25,22 @@ if(isset($_POST['tambah'])){
         $koneksi,
         trim($_POST['nama_mhs'])
     );
+$prodi = mysqli_real_escape_string(
+    $koneksi,
+    trim($_POST['prodi'])
+);
 
-    if(empty($npm) || empty($nama_mhs)){
+$fakultas = mysqli_real_escape_string(
+    $koneksi,
+    trim($_POST['fakultas'])
+);
+
+    if(
+    empty($npm) ||
+    empty($nama_mhs) ||
+    empty($prodi) ||
+    empty($fakultas)
+){
 
         $pesan_error = "Semua field wajib diisi.";
 
@@ -49,19 +63,23 @@ if(isset($_POST['tambah'])){
             $insert = mysqli_query(
                 $koneksi,
                 "INSERT INTO users
-                (
-                    npm,
-                    password,
-                    nama_mhs,
-                    role
-                )
+(
+    npm,
+    password,
+    nama_mhs,
+    prodi,
+    fakultas,
+    role
+)
                 VALUES
-                (
-                    '$npm',
-                    '$password',
-                    '$nama_mhs',
-                    'mahasiswa'
-                )"
+(
+    '$npm',
+    '$password',
+    '$nama_mhs',
+    '$prodi',
+    '$fakultas',
+    'mahasiswa'
+)"
             );
 
             if($insert){
@@ -130,8 +148,11 @@ if(isset($_POST['update'])){
             mysqli_query(
                 $koneksi,
                 "UPDATE users SET
-                password='$password_md5'
-                WHERE id_user='$id_user'"
+
+npm='$npm',
+nama_mhs='$nama_mhs',
+prodi='$prodi',
+fakultas='$fakultas'"
             );
         }
 
@@ -594,7 +615,23 @@ class="form-control"
 required>
 
 </div>
+<div class="mb-3">
+    <label class="form-label">Program Studi</label>
+    <input
+        type="text"
+        name="prodi"
+        class="form-control"
+        required>
+</div>
 
+<div class="mb-3">
+    <label class="form-label">Fakultas</label>
+    <input
+        type="text"
+        name="fakultas"
+        class="form-control"
+        required>
+</div>
 <div class="alert alert-info">
 
 Password default:
@@ -649,14 +686,11 @@ placeholder="Cari NPM atau Nama Mahasiswa">
         <tr>
 
             <th width="70">No</th>
-
-            <th>NPM</th>
-
-            <th>Nama Mahasiswa</th>
-
-            <th width="120">Role</th>
-
-            <th width="180">Aksi</th>
+<th>NPM</th>
+<th>Nama Mahasiswa</th>
+<th>Program Studi</th>
+<th>Fakultas</th>
+<th width="180">Aksi</th>
 
         </tr>
 
@@ -685,22 +719,23 @@ placeholder="Cari NPM atau Nama Mahasiswa">
                 </strong>
 
             </td>
+<td>
 
-            <td>
+<?= htmlspecialchars($row['nama_mhs']) ?>
 
-                <?= htmlspecialchars($row['nama_mhs']) ?>
+</td>
 
-            </td>
+<td>
 
-            <td>
+<?= htmlspecialchars($row['prodi'] ?? '-') ?>
 
-                <span class="badge-role">
+</td>
 
-                    Mahasiswa
+<td>
 
-                </span>
+<?= htmlspecialchars($row['fakultas'] ?? '-') ?>
 
-            </td>
+</td>
 
             <td>
 
@@ -782,7 +817,31 @@ value="<?= htmlspecialchars($row['nama_mhs']) ?>"
 required>
 
 </div>
+<div class="mb-3">
 
+<label>Program Studi</label>
+
+<input
+type="text"
+name="prodi"
+class="form-control"
+value="<?= htmlspecialchars($row['prodi'] ?? '') ?>"
+required>
+
+</div>
+
+<div class="mb-3">
+
+<label>Fakultas</label>
+
+<input
+type="text"
+name="fakultas"
+class="form-control"
+value="<?= htmlspecialchars($row['fakultas'] ?? '') ?>"
+required>
+
+</div>
 <div class="mb-3">
 
 <label>Password Baru</label>
@@ -836,7 +895,7 @@ Simpan Perubahan
 
 <tr>
 
-<td colspan="5" class="text-center py-4">
+<td colspan="6" class="text-center py-4">
 
 Tidak ada data mahasiswa.
 
