@@ -39,17 +39,20 @@ if (isset($_POST['login'])) {
             $result_dosen = mysqli_query($koneksi, $query_dosen);
             
             if (mysqli_num_rows($result_dosen) > 0) {
-                $data = mysqli_fetch_assoc($result_dosen);
-                // Simpan data dosen ke session
-                $_SESSION['id_user']  = $data['id_dosen'];  // id_dosen dijadikan id_user di session
-                $_SESSION['npm']      = $data['nip'];       
-                $_SESSION['nama_mhs'] = $data['nama_dosen'];
-                $_SESSION['role']     = 'dosen';            // Set role jadi dosen
-                
-                $_SESSION['login_success'] = true;
-                header("Location: dashboard.php");
-                exit;
-            } else {
+    $data = mysqli_fetch_assoc($result_dosen);
+
+    $_SESSION['id_user']  = $data['id_dosen'];
+    $_SESSION['id_dosen'] = $data['id_dosen']; // TAMBAHAN
+
+    $_SESSION['npm']      = $data['nip'];
+    $_SESSION['nama_mhs'] = $data['nama_dosen'];
+    $_SESSION['role']     = 'dosen';
+
+    $_SESSION['login_success'] = true;
+
+    header("Location: dashboard.php");
+    exit;
+} else {
                 $error = "Username atau Password salah!";
             }
         }
