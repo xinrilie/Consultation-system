@@ -772,7 +772,7 @@ body{
                                 Nama Dosen
                             </th>
 
-                            <th>
+                            <th width="300" class="text-center">
                                 Keahlian
                             </th>
 
@@ -812,7 +812,7 @@ body{
 
                             </td>
 
-                            <td>
+                            <td class="text-center">
 
                                 <span class="badge-keahlian">
 
@@ -822,7 +822,7 @@ body{
 
                             </td>
 
-                            <td>
+                            <td class="text-center"`>
 
                                 <button
                                 class="btn btn-warning btn-sm btn-action"
