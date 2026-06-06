@@ -326,6 +326,20 @@ body {
 .modal-backdrop.show + .modal-backdrop.show { z-index: 1065; }
 #cropModal,
 #cropModalEdit { z-index: 1070 !important; }
+
+/* ── Fix: tombol simpan selalu terlihat ─── */
+.modal-dialog-scrollable .modal-body {
+    max-height: 65vh;
+    overflow-y: auto;
+}
+.modal-dialog-scrollable .modal-content {
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+.modal-footer {
+    flex-shrink: 0;
+}
 </style>
 </head>
 <body>
