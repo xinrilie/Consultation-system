@@ -17,7 +17,11 @@ if (!isset($_SESSION['id_user']) || $_SESSION['role'] != 'mahasiswa') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pilih Dosen Pembimbing</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+         .navbar-custom{
+    background:white;
+    box-shadow:0 5px 20px rgba(0,0,0,.06);}
         .card-dosen { transition: transform 0.3s; }
         .card-dosen:hover { transform: translateY(-5px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
         /* Style foto profil bulat */
@@ -33,13 +37,25 @@ if (!isset($_SESSION['id_user']) || $_SESSION['role'] != 'mahasiswa') {
 </head>
 <body class="bg-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm mb-4">
+<nav class="navbar navbar-expand-lg navbar-custom">
+
     <div class="container">
-        <a class="navbar-brand fw-bold" href="dashboard.php">Sistem Konsultasi</a>
-        <div class="navbar-nav ms-auto">
-            <a class="nav-link text-white" href="dashboard.php">&larr; Kembali ke Dashboard</a>
+
+        <a class="navbar-brand fw-bold text-primary" href="dashboard.php">
+            <i class="bi bi-mortarboard-fill me-2"></i>
+            Sistem Konsultasi
+        </a>
+
+        <div class="ms-auto">
+
+            <a href="dashboard.php" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-house"></i> Dashboard
+            </a>
+
         </div>
+
     </div>
+
 </nav>
 
 <div class="container">
