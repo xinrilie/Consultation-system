@@ -782,7 +782,8 @@ body{
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
 document.querySelectorAll('.btn-logout').forEach(button => {
 
     button.addEventListener('click', function(e){
@@ -811,7 +812,7 @@ document.querySelectorAll('.btn-logout').forEach(button => {
 });
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <!-- CLOCK -->
 <script>
 function updateClock() {
